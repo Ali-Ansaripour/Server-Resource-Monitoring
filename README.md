@@ -39,10 +39,10 @@ This Bash script monitors the disk usage of a specified directory on multiple re
 
 1. **Edit the Script**
 
-    Open the script file `multi_server_disk_usage_monitor.sh` in a text editor:
+    Open the script file `script.sh` in a text editor:
 
     ```bash
-    nano multi_server_disk_usage_monitor.sh
+    nano script.sh
     ```
 
 2. **Customize the Variables**
@@ -79,13 +79,13 @@ This Bash script monitors the disk usage of a specified directory on multiple re
 1. **Make the Script Executable**
 
     ```bash
-    chmod +x multi_server_disk_usage_monitor.sh
+    chmod +x script.sh
     ```
 
 2. **Run the Script**
 
     ```bash
-    ./multi_server_disk_usage_monitor.sh
+    ./script.sh
     ```
 
 ## Script Details
