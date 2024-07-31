@@ -22,7 +22,7 @@ This Bash script monitors the disk usage of a specified directory on multiple re
 
     ```bash
     git clone https://github.com/Ali-Ansaripour/Remote-Disk-usage-Mon/
-    cd your-repo-name
+    cd /Remote-Disk-usage-Mon/
     ```
 
 2. **Ensure Required Packages are Installed**
