@@ -89,4 +89,10 @@ The script works as follows:
 3. If the disk usage exceeds the specified `THRESHOLD`, it sends an email alert to `ALERT_EMAIL`.
 4. It prints the current disk usage status to the terminal.
 
+## Contributing
 
+Contributions are welcome! Please open an issue or submit a pull request if you have any suggestions for improvements or new features.
+
+## Contact
+
+For any questions or feedback, please contact ansaripourali.org@gmail.com
