@@ -27,7 +27,7 @@ This Bash script monitors the disk usage of a specified directory on multiple re
 
 2. **Ensure Required Packages are Installed**
 
-    Install the necessary packages using your package manager. For Termux, use:
+    Install the necessary packages using your package manager.
 
     ```bash
     pkg update && pkg upgrade
@@ -96,4 +96,11 @@ The script works as follows:
 2. For each server, it checks the current disk usage of the specified directory using the `df` command over SSH.
 3. If the disk usage exceeds the specified `THRESHOLD`, it sends an email alert to `ALERT_EMAIL`.
 4. It prints the current disk usage status to the terminal.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request if you have any suggestions for improvements or new features.
+
+
+
 
