@@ -15,8 +15,7 @@
    - [Set a Default Account](#set-a-default-account)
 6. [Usage](#usage)
    - [Running the Script](#running-the-script)
-
-7.[Outputs](#outputs)
+7. [Outputs](#outputs)
 8. [Troubleshooting](#troubleshooting)
 9. [Contributing](#contributing)
 10. [Author](#author)
