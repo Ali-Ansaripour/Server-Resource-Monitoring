@@ -1,105 +1,154 @@
-# Multi-Server Disk Usage Monitoring Script
+# Server Resource Monitoring and Alert Script
 
-## Overview
-
-This Bash script monitors the disk usage of a specified directory on multiple remote servers via SSH. If the disk usage on any server exceeds a defined threshold, the script sends an email alert. This is useful for maintaining the health of multiple servers and ensuring they do not run out of disk space unexpectedly.
+This Bash script monitors disk, CPU, and RAM usage on remote servers and generates alerts via email when usage exceeds specified thresholds. Additionally, the script generates graphs for these metrics over time and sends them as email attachments. Logs are also saved locally for servers that are operating within acceptable limits.
 
 ## Features
 
-- Monitors disk usage of a specified directory on multiple servers
-- Configurable disk usage threshold
-- Sends email alerts when disk usage exceeds the threshold on any server
+- **Monitor Disk, CPU, and RAM Usage**: Periodically check disk, CPU, and RAM usage on remote servers.
+- **Threshold-Based Alerts**: Send email alerts when any of the metrics exceed specified thresholds.
+- **Graph Generation**: Generate time-series graphs for disk, CPU, and RAM usage.
+- **Logging**: Log usage details for servers that are within acceptable limits.
 
 ## Prerequisites
 
-- Bash shell
-- SSH access to the remote servers
-- `mail` utility for sending email alerts
+Before running the script, ensure your environment meets the following requirements:
 
-## Installation
+1. **SSH Access**: The script uses SSH to connect to remote servers. Ensure that SSH access is configured and working.
+2. **Dependencies**:
+   - **OpenSSH Client**: For SSH access to remote servers.
+   - **Gnuplot**: For generating graphs.
+   - **msmtp**: For sending email alerts.
 
-1. **Clone the Repository**
+### Installation Commands
 
+- **Debian/Ubuntu**:
     ```bash
-    git clone https://github.com/Ali-Ansaripour/Remote-Disk-usage-Mon/
-    cd /Remote-Disk-usage-Mon/
+    sudo apt-get update
+    sudo apt-get install openssh-client gnuplot msmtp
     ```
 
-2. **Ensure Required Packages are Installed**
-
-    Install the necessary packages using your package manager.
-
+- **CentOS/RHEL**:
     ```bash
-    pkg update && pkg upgrade
-    pkg install openssh
-    pkg install mailutils
+    sudo yum install openssh-clients gnuplot msmtp
+    ```
+
+- **macOS**:
+    ```bash
+    brew install openssh gnuplot msmtp
     ```
 
 ## Configuration
 
-1. **Edit the Script**
+You need to customize several variables in the script before using it. Open the script in a text editor and adjust the following parameters:
 
-    Open the script file `script.sh` in a text editor:
+### Variables to Customize
 
+1. **Server List**:
     ```bash
-    nano script.sh
-    ```
-
-2. **Customize the Variables**
-
-    - **`SERVERS`**: List the servers to monitor.
-    - **`MONITOR_DIR`**: Specify the directory to monitor.
-    - **`THRESHOLD`**: Set the disk usage percentage threshold.
-    - **`SSH_USER`**: Set the SSH username for remote access.
-    - **`ALERT_EMAIL`**: Set the email address to receive alerts.
-
-    ```bash
-    # List of remote servers
     SERVERS=("192.168.1.1" "192.168.1.2" "192.168.1.3")
-
-    # Directory to monitor
-    MONITOR_DIR="/path/to/directory/"
-
-    # Threshold percentage
-    THRESHOLD=80
-
-    # SSH user
-    SSH_USER="your_ssh_username"
-
-    # Email to send alerts to
-    ALERT_EMAIL="your.email@example.com"
     ```
+    - Replace these with the IP addresses or hostnames of the servers you wish to monitor.
 
-3. **Save and Close the File**
+2. **Monitoring Directory**:
+    ```bash
+    MONITOR_DIR="/path/to/directory/"
+    ```
+    - Set this to the directory you want to monitor for disk usage.
 
-    Press `Ctrl + X`, then `Y`, and `Enter` to save and exit the editor.
+3. **Thresholds**:
+    ```bash
+    DISK_THRESHOLD=80
+    CPU_THRESHOLD=80
+    RAM_THRESHOLD=80
+    ```
+    - Adjust these values to set the percentage thresholds for disk, CPU, and RAM usage.
+
+4. **SSH User**:
+    ```bash
+    SSH_USER="your_ssh_username"
+    ```
+    - Set this to the username you use to SSH into the remote servers.
+
+5. **Email Configuration**:
+    ```bash
+    EMAIL_FROM="your_email@gmail.com"
+    EMAIL_TO="recipient_email@gmail.com"
+    ```
+    - Set `EMAIL_FROM` to the Gmail address you want to send emails from.
+    - Set `EMAIL_TO` to the recipient's email address.
+
+## Setting Up msmtp for Email Alerts
+
+To send emails using Gmail, you'll need to configure `msmtp` with your Gmail credentials:
+
+1. **Create msmtp Config File**:
+   - Create a configuration file at `~/.msmtprc`:
+     ```bash
+     touch ~/.msmtprc
+     chmod 600 ~/.msmtprc
+     ```
+
+2. **Add the Following Configuration**:
+   ```bash
+   account default
+   host smtp.gmail.com
+   port 587
+   auth on
+   user your_email@gmail.com
+   password your_app_specific_password
+   tls on
+   tls_trust_file /etc/ssl/certs/ca-certificates.crt
+   from your_email@gmail.com
+
+   # Set a default account
+   account default : default
+
+3. **App-Specific Password:**
+   - For security reasons, you should use an app-specific password from Google for msmtp. Generate one here.
+   - After generating your app-specific password, replace `your_app_specific_password` in the `~/.msmtprc` file with the password you generated.
 
 ## Usage
+** Running the Script **
+Once you've configured the script and installed the necessary dependencies, you can run the script manually or set it up as a cron job for periodic monitoring.
 
-1. **Make the Script Executable**
+1.** Manual Execution:**
+  ```./main.sh```
 
-    ```bash
-    chmod +x script.sh
-    ```
+2. **Set Up a Cron Job:**
+   - To run the script every hour, for example, add the following line to your crontab:
+   ``` 0 * * * * /path/to/main.sh ```
+   - Open the crontab file with:
+   ```crontab -e ```
+## Outputs
+** Alerts: **
+   - If any server exceeds the defined thresholds, an email alert is sent with usage details and attached graphs.
+** Graphs: **
+   - The generated graphs show the resource usage over time for disk, CPU, and RAM.
+** Logs: **
+   - The script saves logs of normal server operations in a file, allowing you to review server health even when no alerts are triggered.
 
-2. **Run the Script**
 
-    ```bash
-    ./script.sh
-    ```
-
-## Script Details
-
-The script works as follows:
-
-1. It iterates over each server listed in the `SERVERS` array.
-2. For each server, it checks the current disk usage of the specified directory using the `df` command over SSH.
-3. If the disk usage exceeds the specified `THRESHOLD`, it sends an email alert to `ALERT_EMAIL`.
-4. It prints the current disk usage status to the terminal.
+## Troubleshooting 
+   - `SSH Issues:` Ensure you can SSH into your servers without being prompted for a password. Consider setting up SSH keys for passwordless login.
+   - `msmtp Errors:` If emails aren't sending, check your `~/.msmtprc` configuration and make sure you're using an app-specific password for Gmail.
+   - `Gnuplot Errors:` If graphs aren't generating, verify that gnuplot is installed and check for any syntax errors in the graphing section of the script.
 
 ## Contributing
+If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are welcome.
 
-Contributions are welcome! Please open an issue or submit a pull request if you have any suggestions for improvements or new features.
+
+## Author
+
+** Created by Ali Ansaripour. ** 
+- For any questions or support, feel free to reach out to me at `ansaripourali.org@gmail.com`
+
+
+
+
+
+
+
+
 
 
 
