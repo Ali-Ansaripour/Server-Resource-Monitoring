@@ -1,5 +1,27 @@
 # Server Resource Monitoring and Alert Script
 
+
+## Contents
+
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Prerequisites](#prerequisites)
+   - [Installation Commands](#installation-commands)
+4. [Configuration](#configuration)
+   - [Variables to Customize](#variables-to-customize)
+5. [Setting Up `msmtp` for Email Alerts](#setting-up-msmtp-for-email-alerts)
+   - [Create msmtp Config File](#create-msmtp-config-file)
+   - [App-Specific Password](#app-specific-password)
+   - [Set a Default Account](#set-a-default-account)
+6. [Usage](#usage)
+   - [Running the Script](#running-the-script)
+   - [Outputs](#outputs)
+7. [Troubleshooting](#troubleshooting)
+8. [License](#license)
+9. [Contributing](#contributing)
+10. [Author](#author)
+
+
 This Bash script monitors `DISK`, `CPU`, and `RAM` usage on remote servers and generates alerts via email when usage exceeds specified thresholds. Additionally, the script generates graphs for these metrics over time and sends them as email attachments. Logs are also saved locally for servers that are operating within acceptable limits.
 
 ## Features
