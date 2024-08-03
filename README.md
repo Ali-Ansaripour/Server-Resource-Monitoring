@@ -1,6 +1,6 @@
 # Server Resource Monitoring and Alert Script
 
-This Bash script monitors disk, CPU, and RAM usage on remote servers and generates alerts via email when usage exceeds specified thresholds. Additionally, the script generates graphs for these metrics over time and sends them as email attachments. Logs are also saved locally for servers that are operating within acceptable limits.
+This Bash script monitors `DISK`, `CPU`, and `RAM` usage on remote servers and generates alerts via email when usage exceeds specified thresholds. Additionally, the script generates graphs for these metrics over time and sends them as email attachments. Logs are also saved locally for servers that are operating within acceptable limits.
 
 ## Features
 
@@ -111,14 +111,15 @@ To send emails using Gmail, you'll need to configure `msmtp` with your Gmail cre
 ** Running the Script **
 Once you've configured the script and installed the necessary dependencies, you can run the script manually or set it up as a cron job for periodic monitoring.
 
-1.** Manual Execution:**
+1. **Manual Execution:**
   ```./main.sh```
 
-2. **Set Up a Cron Job:**
+3. **Set Up a Cron Job:**
    - To run the script every hour, for example, add the following line to your crontab:
    ``` 0 * * * * /path/to/main.sh ```
    - Open the crontab file with:
    ```crontab -e ```
+
 ## Outputs
 ** Alerts: **
    - If any server exceeds the defined thresholds, an email alert is sent with usage details and attached graphs.
