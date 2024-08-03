@@ -15,6 +15,8 @@
    - [Set a Default Account](#set-a-default-account)
 6. [Usage](#usage)
    - [Running the Script](#running-the-script)
+   - [Manual Execution](#Manual-Execution)
+   - [Set Up a Cron Job](#Set-Up-a-Cron-Job)
 7. [Outputs](#outputs)
 8. [Troubleshooting](#troubleshooting)
 9. [Contributing](#contributing)
