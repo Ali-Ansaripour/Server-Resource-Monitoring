@@ -131,16 +131,16 @@ To send emails using Gmail, you'll need to configure `msmtp` with your Gmail cre
 **Running the Script**
 Once you've configured the script and installed the necessary dependencies, you can run the script manually or set it up as a cron job for periodic monitoring.
 1. **Clone the repo:**
-   ```bash
-   git clone https://github.com/Ali-Ansaripour/Server-Resource-Monitoring
-   ```
+     ```bash
+     git clone https://github.com/Ali-Ansaripour/Server-Resource-Monitoring
+     ```
    
 3. **Manual Execution:**
-  ```bash
-  cd /Server-Resource-Monitoring
-  chmod 755 script.sh
-  ./script.sh
-  ```
+    ```bash
+    cd /Server-Resource-Monitoring
+    chmod 755 script.sh
+    ./script.sh
+    ```
 
 3. **Set Up a Cron Job:**
    - To run the script every hour, for example, add the following line to your crontab:
