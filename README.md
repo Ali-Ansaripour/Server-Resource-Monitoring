@@ -17,9 +17,8 @@
    - [Running the Script](#running-the-script)
    - [Outputs](#outputs)
 7. [Troubleshooting](#troubleshooting)
-8. [License](#license)
-9. [Contributing](#contributing)
-10. [Author](#author)
+8. [Contributing](#contributing)
+9. [Author](#author)
 
 
 This Bash script monitors `DISK`, `CPU`, and `RAM` usage on remote servers and generates alerts via email when usage exceeds specified thresholds. Additionally, the script generates graphs for these metrics over time and sends them as email attachments. Logs are also saved locally for servers that are operating within acceptable limits.
