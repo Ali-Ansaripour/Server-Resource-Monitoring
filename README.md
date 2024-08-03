@@ -136,7 +136,7 @@ Once you've configured the script and installed the necessary dependencies, you 
   ./main.sh
   ```
 
-3. **Set Up a Cron Job:**
+2. **Set Up a Cron Job:**
    - To run the script every hour, for example, add the following line to your crontab:
    ```bash
    0 * * * * /path/to/main.sh 
@@ -160,7 +160,7 @@ Once you've configured the script and installed the necessary dependencies, you 
 ## Troubleshooting 
    - `SSH Issues:` Ensure you can SSH into your servers without being prompted for a password. Consider setting up SSH keys for passwordless login.
 
-** Setting It Up **
+**Setting It Up**
 
    - To set up passwordless SSH, you can follow these steps:
 1. Generate an SSH key pair on your local machine (if you haven't already) :
