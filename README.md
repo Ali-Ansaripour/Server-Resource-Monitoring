@@ -157,12 +157,15 @@ Once you've configured the script and installed the necessary dependencies, you 
 ** Setting It Up **
 
    - To set up passwordless SSH, you can follow these steps:
-1. Generate an SSH key pair on your local machine (if you haven't already):
-     ```ssh-keygen -t rsa -b 4096 -C "your_email@example.com"```
-2. Copy your public key to the remote server:
-     ```ssh-copy-id username@remote_server_ip```  
-3. Test the connection:
-     ```ssh username@remote_server_ip```
+1. Generate an SSH key pair on your local machine (if you haven't already) :
+     ```bash
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"```
+3. Copy your public key to the remote server :
+     ```bash
+   ssh-copy-id username@remote_server_ip```  
+5. Test the connection :
+     ```bash
+   ssh username@remote_server_ip```
      
    - If everything is set up correctly, you should be able to SSH into the server without being prompted for a password.
 
