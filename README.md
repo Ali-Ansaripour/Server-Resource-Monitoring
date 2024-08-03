@@ -125,7 +125,7 @@ To send emails using Gmail, you'll need to configure `msmtp` with your Gmail cre
    account default : default
 
 3. **App-Specific Password:**
-   - For security reasons, you should use an app-specific password from Google for msmtp. Generate one here.
+   - For security reasons, you should use an app-specific password from Google for msmtp. Generate one [here](https://support.google.com/mail/answer/185833?hl=en).
    - After generating your app-specific password, replace `your_app_specific_password` in the `~/.msmtprc` file with the password you generated.
 
 ## Usage
