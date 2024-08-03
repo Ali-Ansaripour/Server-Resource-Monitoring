@@ -138,13 +138,13 @@ Once you've configured the script and installed the necessary dependencies, you 
 
 2. **Set Up a Cron Job:**
    - To run the script every hour, for example, add the following line to your crontab:
-   ```bash
-   0 * * * * /path/to/main.sh 
-   ```
+    ```bash
+    0 * * * * /path/to/main.sh 
+    ```
    - Open the crontab file with:
-   ```bash
-   crontab -e 
-   ```
+    ```bash
+    crontab -e 
+    ```
 
 ## Outputs
 1.**Alerts:**
