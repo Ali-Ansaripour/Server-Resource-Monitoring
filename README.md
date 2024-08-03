@@ -132,13 +132,19 @@ To send emails using Gmail, you'll need to configure `msmtp` with your Gmail cre
 Once you've configured the script and installed the necessary dependencies, you can run the script manually or set it up as a cron job for periodic monitoring.
 
 1. **Manual Execution:**
-  ```./main.sh```
+  ```bash
+  ./main.sh
+  ```
 
 3. **Set Up a Cron Job:**
    - To run the script every hour, for example, add the following line to your crontab:
-   ``` 0 * * * * /path/to/main.sh ```
+   ```bash
+   0 * * * * /path/to/main.sh 
+   ```
    - Open the crontab file with:
-   ```crontab -e ```
+   ```bash
+   crontab -e 
+   ```
 
 ## Outputs
 1.**Alerts:**
@@ -159,13 +165,16 @@ Once you've configured the script and installed the necessary dependencies, you 
    - To set up passwordless SSH, you can follow these steps:
 1. Generate an SSH key pair on your local machine (if you haven't already) :
      ```bash
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"```
+     ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+     ```
 3. Copy your public key to the remote server :
      ```bash
-   ssh-copy-id username@remote_server_ip```  
+     ssh-copy-id username@remote_server_ip
+     ```  
 5. Test the connection :
      ```bash
-   ssh username@remote_server_ip```
+     ssh username@remote_server_ip
+     ```
      
    - If everything is set up correctly, you should be able to SSH into the server without being prompted for a password.
 
