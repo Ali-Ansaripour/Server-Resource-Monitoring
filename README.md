@@ -108,7 +108,7 @@ To send emails using Gmail, you'll need to configure `msmtp` with your Gmail cre
    - After generating your app-specific password, replace `your_app_specific_password` in the `~/.msmtprc` file with the password you generated.
 
 ## Usage
-** Running the Script **
+**Running the Script**
 Once you've configured the script and installed the necessary dependencies, you can run the script manually or set it up as a cron job for periodic monitoring.
 
 1. **Manual Execution:**
@@ -121,11 +121,11 @@ Once you've configured the script and installed the necessary dependencies, you 
    ```crontab -e ```
 
 ## Outputs
-** Alerts: **
+**Alerts:**
    - If any server exceeds the defined thresholds, an email alert is sent with usage details and attached graphs.
-** Graphs: **
+**Graphs:**
    - The generated graphs show the resource usage over time for disk, CPU, and RAM.
-** Logs: **
+**Logs:**
    - The script saves logs of normal server operations in a file, allowing you to review server health even when no alerts are triggered.
 
 
@@ -140,7 +140,7 @@ If you'd like to contribute, please fork the repository and use a feature branch
 
 ## Author
 
-** Created by Ali Ansaripour. ** 
+**Created by Ali Ansaripour.** 
 - For any questions or support, feel free to reach out to me at `ansaripourali.org@gmail.com`
 
 
