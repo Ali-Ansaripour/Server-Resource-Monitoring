@@ -14,8 +14,6 @@
    - [Add the Following Configuration](#Add-the-Following-Configuration)
    - [App-Specific Password](#App-Specific-Password)
 6. [Usage](#usage)
-   - [Manual Execution](#Manual-Execution)
-   - [Set Up a Cron Job](#Set-Up-a-Cron-Job)
 7. [Outputs](#outputs)
 8. [Troubleshooting](#troubleshooting)
 9. [Contributing](#contributing)
