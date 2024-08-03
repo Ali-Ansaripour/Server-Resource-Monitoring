@@ -15,10 +15,10 @@
    - [Set a Default Account](#set-a-default-account)
 6. [Usage](#usage)
    - [Running the Script](#running-the-script)
-   - [Outputs](#outputs)
-7. [Troubleshooting](#troubleshooting)
-8. [Contributing](#contributing)
-9. [Author](#author)
+7.[Outputs](#outputs)
+8. [Troubleshooting](#troubleshooting)
+9. [Contributing](#contributing)
+10. [Author](#author)
 
 
 This Bash script monitors `DISK`, `CPU`, and `RAM` usage on remote servers and generates alerts via email when usage exceeds specified thresholds. Additionally, the script generates graphs for these metrics over time and sends them as email attachments. Logs are also saved locally for servers that are operating within acceptable limits.
