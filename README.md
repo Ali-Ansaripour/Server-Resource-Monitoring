@@ -121,11 +121,13 @@ Once you've configured the script and installed the necessary dependencies, you 
    ```crontab -e ```
 
 ## Outputs
-**Alerts:**
+1.**Alerts:**
    - If any server exceeds the defined thresholds, an email alert is sent with usage details and attached graphs.
-**Graphs:**
+
+2.**Graphs:**
    - The generated graphs show the resource usage over time for disk, CPU, and RAM.
-**Logs:**
+
+3.**Logs:**
    - The script saves logs of normal server operations in a file, allowing you to review server health even when no alerts are triggered.
 
 
